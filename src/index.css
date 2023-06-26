@@ -1,15 +1,19 @@
 body {
 	margin: 0;
 	padding: 0;
+	height: 105vh;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
 		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 		"Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: #000;
-	/* height: 100%; */
+	background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/51e53f54-0d9f-40ec-9e05-c030def06ac9/400e792e-439b-4606-b384-d6d648de2f79/KR-ko-20230515-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+	background-size: cover;
+	backdrop-filter: brightness(0.6);
 }
-
+#root {
+	height: 100vh;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;

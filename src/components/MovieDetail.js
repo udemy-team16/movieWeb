@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from 'styles/MovieDetail.module.css';
 
 const MovieDetail = ({ id }) => {
@@ -32,7 +32,7 @@ const MovieDetail = ({ id }) => {
           <span className={styles.download}>⬇ {movieDetail.download_count}</span>
           <button className={styles.btn}>⬇ Download</button>
         </div>
-        <div className={styles.info}><h3>줄거리</h3> <br/>{movieDetail.description_full}</div>
+        <div className={styles.info}><h3>줄거리</h3>{movieDetail.description_full}</div>
       </div>
     </div>
   );
