@@ -71,6 +71,21 @@
   max-width: 300px;
   padding: 0 1rem;
   box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.star {
+  color: #6ac045;
+  margin-bottom: 10px;
+}
+
+.rating {
+  margin-bottom: 20px;
+}
+.genres {
+  margin-bottom: 10px;
 }
 
 .imgContainer:hover .figcaption {

@@ -40,13 +40,15 @@ const Home = () => {
                     className={styles.img}
                   />
                   <figcaption className={styles.figcaption}>
-                    <h3 className={styles.title}>{v.title_english}</h3>
-                    <span className={styles.year}>{v.year}</span>
+                    <p className={styles.star}>★</p>
+                    <h3 className={styles.rating}>{v.rating} / 10</h3>
+                    <p className={styles.genres}>{v.genres[0]}</p>
+                    <p className={styles.genres}>{v.genres[1]}</p>
                   </figcaption>
                 </figure>
                 <div className={styles.desc}>
-                  <h3 className={styles.title}>{v.title_english}</h3>
-                  <span className={styles.year}>{v.year}</span>
+                  <p className={styles.title}>{v.title_english}</p>
+                  <p className={styles.year}>{v.year}</p>
                 </div>
               </li>
             );
