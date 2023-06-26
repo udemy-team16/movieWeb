@@ -33,13 +33,17 @@ const Home = () => {
             };
             return (
               <li key={v.id} onClick={navigateToDetail} className={styles.li}>
-                <div className={styles.imgContainer}>
+                <figure className={styles.imgContainer}>
                   <img
                     src={v.medium_cover_image}
                     alt={`${v.title_english} 영화 이미지`}
                     className={styles.img}
                   />
-                </div>
+                  <figcaption className={styles.figcaption}>
+                    <h3 className={styles.title}>{v.title_english}</h3>
+                    <span className={styles.year}>{v.year}</span>
+                  </figcaption>
+                </figure>
                 <div className={styles.desc}>
                   <h3 className={styles.title}>{v.title_english}</h3>
                   <span className={styles.year}>{v.year}</span>
