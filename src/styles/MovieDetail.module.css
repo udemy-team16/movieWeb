@@ -1,11 +1,6 @@
 .box {
 	width: 100%;
 	height: 100%;
-	background-image: url(https://img.yts.mx/assets/images/movies/kisi_ka_bhai_kisi_ki_jaan_2023/background.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	opacity: 0.9;
 }
 
 .wrap {
