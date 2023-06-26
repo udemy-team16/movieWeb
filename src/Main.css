@@ -1,0 +1,9 @@
+.Main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../public/다운로드.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 30px;
+}
