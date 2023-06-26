@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from "styles/Movies.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -11,21 +11,26 @@ const Moives = () => {
 
     useEffect(() => {
         const url = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`;
-        fetch(url, {
-            method: 'POST',
-        }).then(res => res.json())
+        fetch(url)
+        .then(res => res.json())
         .then(data => {
             if (data.status === 'ok') {
-                setMovieInfo(data.data.movies.filter(item => item.slug === moviename)[0]);
+                const movie = data.data.movies.filter(item => item.slug === moviename)[0]; 
+                setMovieInfo(movie);
 
-                const genreList = data.data.movies.filter(item => item.slug === moviename)[0].genres;
+                const genreList = movie.genres;
                 setMovieGenre(genreList.length === 1 ? genreList : genreList.join(' / '));
             } else {
                 alert('불러오기 실패');
             }
         })
         .catch(err => console.log(err));
-    }, [])
+    }, [moviename])
+
+    // 만약 movieInfo가 아직 설정되지 않았다면 렌더링을 기다림
+    if (!movieInfo) {
+        return null;
+    }
 
     const backStyle = {
         backgroundImage: `linear-gradient(
