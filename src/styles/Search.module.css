@@ -1,0 +1,12 @@
+.searchWrap strong,
+h2 {
+	color: #fff;
+	text-align: center;
+}
+.searchWrap strong {
+	font-size: 60px;
+	color: rgb(65, 188, 82);
+}
+.movieWrap {
+	justify-content: center;
+}

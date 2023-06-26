@@ -13,7 +13,9 @@ const Movies = () => {
     )
       .then((response) => response.json())
       .then((json) => {
-        setMovies(json.data.movies);
+        const moviesData = json.data.movies;
+        const slicedMovies = moviesData.slice(0, 8); 
+        setMovies(slicedMovies);
         console.log(json.data);
       });
   };
@@ -28,9 +30,9 @@ const Movies = () => {
   return (
     <div>
       <div className={styles.movieWrap}>
-        {movies.map((movie, i) => {
+        {movies.map(movie => {
           return (
-            <div className={styles.movieImg} style={{ backgroundImage: "url(" + `${movie.medium_cover_image}` + ")" }} onClick={() => movieDetailHandle(movie.id)}>
+            <div key={movie.id} className={styles.movieImg} style={{ backgroundImage: "url(" + `${movie.medium_cover_image}` + ")" }} onClick={() => movieDetailHandle(movie.id)}>
               <div className={styles.overlay}>
                 <div className={styles.head}>
                   <p>★</p>

@@ -1,4 +1,8 @@
 .footer {
+	position : relative;
+  transform : translateY(-100%);
 	text-align: center;
 	padding: 10px;
+	color: #fff;
+	background-color: rgb(43, 43, 43);
 }
