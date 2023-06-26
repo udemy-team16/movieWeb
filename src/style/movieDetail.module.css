@@ -1,0 +1,33 @@
+.section {
+  background-color: #171717;
+  height: 100vh;
+  padding: 3rem 4rem;
+  color: white;
+  display: flex;
+  gap: 2rem;
+}
+
+.desc {
+  margin: 0 auto;
+}
+.img {
+  border: 5px solid white;
+  border-radius: 5px;
+  width: 20rem;
+  height: 30rem;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  line-height: 20px;
+}
+
+.year,
+.genres {
+  line-height: 14px;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

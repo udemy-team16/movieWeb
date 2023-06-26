@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  background-color: #1d1d1d;
+  color: #6ac045;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  font-weight: 700;
+  border-bottom: 1px solid #2f2f2f;
+}
+
+.header h1 {
+  font-size: x-large;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 10rem;
+  color: #919191;
+}
