@@ -1,0 +1,59 @@
+.movieWrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 30px 200px 30px 200px;
+	overflow-x: hidden;
+}
+.movieImg {
+	display: flex;
+	flex-direction: column;
+	width: 210px;
+	height: 315px;
+	margin-bottom: 30px;
+	cursor: pointer;
+	border: 5px solid #fff;
+}
+.movieImg:hover {
+	border: 5px solid rgb(65, 188, 82);
+	transition: 0.5s;
+}
+.overlay {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.head,
+.genre {
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+.genre p {
+	width: 100%;
+	font-size: 30px;
+	font-weight: 700;
+}
+.btn {
+	width: 70%;
+	margin: 0 auto;
+	background-color: rgb(98, 155, 73);
+	border-radius: 10px;
+	padding: 10px;
+	border: none;
+}
+.btn:hover {
+	transition: 0.5s;
+	cursor: pointer;
+	background-color: rgb(159, 192, 145);
+}
+.movieImg:hover .overlay {
+	width: 100%;
+	transition: 0.7s;
+	opacity: 1;
+	background: rgba(63, 62, 62, 0.5);
+}

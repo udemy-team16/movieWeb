@@ -1,0 +1,27 @@
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: rgb(43, 43, 43);
+	color: rgb(65, 188, 82);
+	font-size: 50px;
+	padding: 20px;
+	box-sizing: border-box;
+	height: 100px;
+}
+.search {
+	width: 30%;
+	height: 100%;
+}
+.search button{
+	background-color: rgb(43, 43, 43);
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+.search input {
+	padding: 7px;
+	border: 2px solid grey;
+	border-radius: 15px;
+	background-color: rgb(43, 43, 43);
+}
