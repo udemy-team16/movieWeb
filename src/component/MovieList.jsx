@@ -4,21 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
   const navigate = useNavigate();
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [list, setList] = useState(null);
 
   useEffect(() => {
     fetch(`https://yts.mx/api/v2/list_movies.json`)
       .then((res) => res.json())
       .then((data) => {
         setList(data.data.movies);
-        setLoading(false);
       });
   }, []);
 
-  console.log(list)
  
-  if (loading) return  (
+  if (!list) return  (
     <div className="spinnerWraps">
       <div className="spinner">
         <div className="spinner-inner" />

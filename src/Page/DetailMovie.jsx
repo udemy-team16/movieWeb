@@ -5,7 +5,6 @@ import "./DetailMovie.css";
 const DetailMovie = () => {
   const [movie, setMovie] = useState(null);
   const navigator = useNavigate();
-  const [loading, setLoading] = useState(true);
   const params = useParams();
 
   useEffect(() => {
@@ -16,11 +15,10 @@ const DetailMovie = () => {
           (item) => item.id === Number(params.id)
         );
         setMovie(filteredMovie);
-        setLoading(false);
       });
-  }, [params.id]);
+  }, []);
 
-  if (loading) return  (
+  if (!movie) return  (
     <div className="spinnerWraps">
       <div className="spinner">
         <div className="spinner-inner" />
