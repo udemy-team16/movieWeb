@@ -16,6 +16,7 @@ const MovieList = () => {
       });
   }, []);
 
+  console.log(list)
  
   if (loading) return  (
     <div className="spinnerWraps">
@@ -43,7 +44,8 @@ const MovieList = () => {
             </div>
           </div>
           <div className="moveInfor">
-            <p>{list.title}</p>
+            <p><span style={{fontWeight:"bold" ,color:"red"}}>({list.language.toUpperCase()
+})</span> {list.title}</p>
             <p>{list.year}</p>
           </div>
         </div>
