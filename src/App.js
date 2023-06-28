@@ -8,12 +8,12 @@ import Search from 'pages/Search';
 
 function App() {
   return (
-    <BrowserRouter className="">
+    <BrowserRouter>
       <Navigation />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/movie/:id' element={<Detail />} />
-        <Route path='/search/:searchMovie' element={<Search />} /> 
+        <Route path='/search' element={<Search />} />
       </Routes>
       <Footer />
     </BrowserRouter>

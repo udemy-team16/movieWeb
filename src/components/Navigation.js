@@ -8,9 +8,9 @@ const Navigation = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search/${searchMovie}`);
+    navigate(`/search?query_term=${searchMovie}`);
   };
-  
+
   const handleChange = (e) => {
     setSearchMovie(e.target.value);
   };
