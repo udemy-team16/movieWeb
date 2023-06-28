@@ -18,12 +18,14 @@ const DetailMovie = () => {
       });
   }, []);
 
-  if (!movie) return  (
-    <div className="spinnerWraps">
-      <div className="spinner">
-        <div className="spinner-inner" />
+  if (!movie)
+    return (
+      <div className="spinnerWraps">
+        <div className="spinner">
+          <div className="spinner-inner" />
+        </div>
       </div>
-    </div>);
+    );
 
   return (
     <div className="detailMain" key={movie.id}>
@@ -56,7 +58,6 @@ const DetailMovie = () => {
         </button>
       </div>
     </div>
- 
   );
 };
 
