@@ -1,6 +1,8 @@
 .footer {
-	position : relative;
-  transform : translateY(-100%);
+	position : absolute;
+	width: 100%;
+	/* overflow-x: hidden; */
+  bottom: 0;
 	text-align: center;
 	padding: 10px;
 	color: #fff;

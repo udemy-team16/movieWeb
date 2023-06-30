@@ -4,6 +4,7 @@ import Detail from 'pages/Detail';
 import Navigation from 'components/Navigation';
 import Footer from 'components/Footer';
 import Search from 'pages/Search';
+import Login from 'pages/Login';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/movie/:id' element={<Detail />} />
         <Route path='/search' element={<Search />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>

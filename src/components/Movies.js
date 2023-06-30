@@ -1,43 +1,39 @@
+// import { faCheckSquare, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import useFetchMovies from 'hooks/useFetchMovies';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from 'styles/Movie.module.css';
 import Loading from './Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useLikeHook from 'hooks/useLikeHook';
 
 const Movies = () => {
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //custom hook
+  const { movieList, loading, error } = useFetchMovies('https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year');
+  const { like, unlike } = useLikeHook(JSON.parse(localStorage.getItem('likeList')) || []);
 
   const navigate = useNavigate();
 
-  const getMovie = () => {
-    setLoading(true);
-    fetch(
-      'https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year'
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        const moviesData = json.data.movies;
-        const slicedMovies = moviesData.slice(0, 8);
-        setMovies(slicedMovies);
-        console.log(json.data);
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    getMovie();
-  }, [])
+  if (error) {
+    console.log(error);
+  }
 
   const movieDetailHandle = (id) => {
     navigate(`/movie/${id}`);
   }
+  const handleColor = (id) => {
+    unlike(id);
+  };
+
+
   return (
     <div>
       {loading ? <Loading /> :
         <div className={styles.movieWrap}>
-          {movies.map(movie => {
+          {movieList.map(movie => {
             return (
-              <div key={movie.id} className={styles.movieImg} style={{ backgroundImage: "url(" + `${movie.medium_cover_image}` + ")" }} onClick={() => movieDetailHandle(movie.id)}>
+              <div key={movie.id} className={styles.movieImg} style={{ backgroundImage: "url(" + `${movie.medium_cover_image}` + ")" }} >
                 <div className={styles.overlay}>
                   <div className={styles.head}>
                     <p>★</p>
@@ -46,13 +42,16 @@ const Movies = () => {
                   <div className={styles.genre}>
                     <p>{movie.genres}</p>
                   </div>
-                  <button className={styles.btn}>View Detail</button>
+                  <button className={styles.btn} onClick={() => movieDetailHandle(movie.id)}>View Detail</button>
+                  <FontAwesomeIcon icon={faHeart} onClick={() => handleColor(movie.id)} style={{ color: like.includes(movie.id) ? 'red' : 'black', width: '30px', height: '30px', margin: '0 auto' }} />
                 </div>
               </div>
             )
           })}
+
         </div>
       }
+
     </div>
   );
 };
