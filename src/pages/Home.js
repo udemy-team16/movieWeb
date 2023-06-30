@@ -17,7 +17,6 @@ const Home = () => {
         <h2 className={styles.header}>Latest YIFY Movies Torrents</h2>
         <ul className={styles.ul}>
           {responseData?.data.movies.map((v, i) => {
-            console.log(v);
             const navigateToDetail = () => {
               navigate(`/movie/${v.id}`);
             };
