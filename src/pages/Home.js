@@ -2,31 +2,21 @@ import Footer from "components/Footer";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../style/home.module.css";
+import { useFetch } from "../custom/useFetch";
 
 const Home = () => {
-  const [movieData, setMovieData] = useState();
-
-  console.log(movieData);
+  const { loading, responseData, errorMsg } = useFetch(
+    "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
+  );
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const data = () => {
-      fetch(
-        "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
-      )
-        .then((res) => res.json())
-        .then((json) => setMovieData(json.data.movies));
-    };
-    data();
-  }, []);
 
   return (
     <section className={styles.section}>
       <div>
         <h2 className={styles.header}>Latest YIFY Movies Torrents</h2>
         <ul className={styles.ul}>
-          {movieData?.map((v, i) => {
+          {responseData?.data.movies.map((v, i) => {
             console.log(v);
             const navigateToDetail = () => {
               navigate(`/movie/${v.id}`);
