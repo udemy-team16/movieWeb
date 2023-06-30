@@ -33,10 +33,9 @@
 	font-size: 20px;
 	text-align: center;
 }
-.genre p {
-	width: 100%;
-	font-size: 30px;
-	font-weight: 700;
+.genre {
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 .btn {
 	width: 70%;
@@ -57,3 +56,21 @@
 	opacity: 1;
 	background: rgba(63, 62, 62, 0.8);
 }
+.pagination {
+	text-align: center;
+}
+.pagination button {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	font-size: 35px;
+	margin-right: 10px;
+	color: #f3f3f3;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	cursor: pointer;
+}
+.pagination button:hover {
+	color :rgb(98, 155, 73);
+}
+
