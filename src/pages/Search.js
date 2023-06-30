@@ -5,7 +5,7 @@ import stylesMovie from 'styles/Movie.module.css';
 import useFetchMovies from 'hooks/useFetchMovies';
 import Loading from 'components/Loading';
 
-const Search = () => {
+const Search = ({ filterMovie }) => {
   // const { searchMovie } = useParams();
   const location = useLocation();
 
@@ -14,12 +14,11 @@ const Search = () => {
 
   // const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
-  const { movieList, loading, error } = useFetchMovies(`https://yts.mx/api/v2/list_movies.json?query_term=${searchMovie}`);
+  const { movieList, loading, error } = useFetchMovies(`https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=8.8&sort_by=year`);
 
-  if (error) {
-    console.log(error);
-  }
-
+  // if (error) {
+  //   console.log(error);
+  // }
 
   const movieDetailHandle = (id) => {
     navigate(`/movie/${id}`);
@@ -29,11 +28,11 @@ const Search = () => {
     <div>
       {loading ? <Loading /> :
         <div className={styles.searchWrap} >
-          {movieList.length !== 0 ? (
+          {filterMovie.length !== 0 ? (
             <div>
-              <h2><strong>'{searchMovie}' </strong>의 검색 결과는 최대 <strong> {movieList.length} </strong> 건 입니다.</h2>
+              <h2>검색 결과는 총 <strong> {filterMovie.length} </strong> 건 입니다.</h2>
               <div className={stylesMovie.movieWrap} style={{ justifyContent: 'center' }}>
-                {movieList.map(movie => {
+                {filterMovie.map(movie => {
                   return (
                     <div key={movie.id} className={stylesMovie.movieImg} style={{ backgroundImage: "url(" + `${movie.medium_cover_image}` + ")", marginRight: '20px' }} onClick={() => movieDetailHandle(movie.id)}>
                       <div className={stylesMovie.overlay}>

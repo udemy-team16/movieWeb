@@ -17,17 +17,16 @@
 	width: 20%;
 	height: 100%;
 }
-.search button{
+.navigation button{
 	background-color: rgb(43, 43, 43);
 	border: none;
 	font-size: 20px;
 	cursor: pointer;
 }
-.search input {
+.navigation input {
 	padding: 7px;
 	border: 2px solid grey;
 	border-radius: 15px;
-	margin-right: 10px;
 	background-color: rgb(43, 43, 43);
 	color: #fff;
 }

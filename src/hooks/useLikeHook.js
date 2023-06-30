@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 
-const useLikeHook = (likeList) => {
-  const [like, setLike] = useState(likeList);
+const useLikeHook = (prevState) => {
+  const [likeList, setLikeList] = useState(prevState);
 
   const unlike = (id) => {
-    if (like.includes(id)) {
-      const removeLikeId = like.filter((item) => item !== id);
-      localStorage.setItem('likeList', JSON.stringify(removeLikeId));
-      setLike(removeLikeId);
+    if (likeList.includes(id)) {
+      const filterList = likeList.filter(item => item !== id);
+      localStorage.setItem('likeList', JSON.stringify(filterList));
+      setLikeList(filterList);
     } else {
-      const newLikeList = [...like, id];
-      localStorage.setItem('likeList', JSON.stringify(newLikeList));
-      setLike(newLikeList);
+      const pushList = [...likeList, id];
+      localStorage.setItem('likeList', JSON.stringify(pushList));
+      setLikeList(pushList);
     }
   }
-
-  return { like, unlike }
+  return { likeList, unlike }
 };
 
 export default useLikeHook;

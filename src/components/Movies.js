@@ -11,7 +11,7 @@ import useLikeHook from 'hooks/useLikeHook';
 const Movies = () => {
   //custom hook
   const { movieList, loading, error } = useFetchMovies('https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year');
-  const { like, unlike } = useLikeHook(JSON.parse(localStorage.getItem('likeList')) || []);
+  const { likeList, unlike } = useLikeHook(JSON.parse(localStorage.getItem('likeList')) || []);
 
   const navigate = useNavigate();
 
@@ -22,11 +22,10 @@ const Movies = () => {
   const movieDetailHandle = (id) => {
     navigate(`/movie/${id}`);
   }
+
   const handleColor = (id) => {
     unlike(id);
-  };
-
-
+  }
   return (
     <div>
       {loading ? <Loading /> :
@@ -43,7 +42,7 @@ const Movies = () => {
                     <p>{movie.genres}</p>
                   </div>
                   <button className={styles.btn} onClick={() => movieDetailHandle(movie.id)}>View Detail</button>
-                  <FontAwesomeIcon icon={faHeart} onClick={() => handleColor(movie.id)} style={{ color: like.includes(movie.id) ? 'red' : 'black', width: '30px', height: '30px', margin: '0 auto' }} />
+                  <FontAwesomeIcon icon={faHeart} onClick={() => handleColor(movie.id)} style={{ color: likeList.includes(movie.id) ? 'red' : 'black', width: '30px', height: '30px', margin: '0 auto' }} />
                 </div>
               </div>
             )
