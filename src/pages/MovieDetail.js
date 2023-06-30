@@ -1,27 +1,20 @@
+import { useFetch } from "custom/useFetch";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "../style/movieDetail.module.css";
 
 const MovieDetail = () => {
   const { id } = useParams();
-  console.log("movieId", id);
+  const { loading, responseData, errorMsg } = useFetch(
+    "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
+  );
   const [detailData, setDetailData] = useState();
 
   useEffect(() => {
-    const data = () => {
-      fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
-      )
-        .then((res) => res.json())
-
-        .then((json) =>
-          json.data.movies.filter((data) => data.id === parseInt(id))
-        )
-        .then((data) => setDetailData(data[0]));
-    };
-    data();
-  }, [id]);
-  console.log("detailData", detailData);
+    setDetailData(
+      responseData?.data.movies.filter((data) => data.id === parseInt(id))[0]
+    );
+  }, [responseData?.data.movies, detailData]);
 
   return (
     <section className={styles.section}>
