@@ -40,15 +40,16 @@
 .btn {
 	width: 70%;
 	margin: 0 auto;
-	background-color: rgb(98, 155, 73);
 	border-radius: 10px;
 	padding: 10px;
 	border: none;
+	color :#f3f3f3
 }
 .btn:hover {
 	transition: 0.5s;
 	cursor: pointer;
 	background-color: rgb(159, 192, 145);
+	color :#000;
 }
 .movieImg:hover .overlay {
 	width: 100%;
@@ -58,7 +59,9 @@
 }
 .pagination {
 	text-align: center;
+	margin-bottom: 50px;
 }
+
 .pagination button {
 	width: 60px;
 	height: 60px;
@@ -67,10 +70,14 @@
 	margin-right: 10px;
 	color: #f3f3f3;
 	border: none;
-	background-color: rgba(0, 0, 0, 0);
 	cursor: pointer;
 }
-.pagination button:hover {
-	color :rgb(98, 155, 73);
+.pagination button:first-child, button:last-child {
+	background-color: rgba(0, 0, 0, 0);
 }
+
+.btn {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
 

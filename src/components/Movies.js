@@ -37,6 +37,12 @@ const Movies = () => {
   const handleColor = (id) => {
     unlike(id);
   }
+  const pageFirst = () => {
+    setCurrentPage(1);
+  }
+  const pageLast = () => {
+    setCurrentPage(pageCount);
+  }
   return (
     <div>
       {loading ? <Loading /> :
@@ -61,11 +67,13 @@ const Movies = () => {
         </div>
       }
       <div className={styles.pagination}>
+        <button onClick={() => pageFirst()}>&lt;&lt;</button>
         {Array.from({ length: pageCount }, (v, index) => (
-          <button key={index + 1} onClick={() => handlePageChange(index + 1)} style={{ color: currentPage === index + 1 ? 'rgb(98, 155, 73)' : '#f3f3f3' }}>
+          <button className={styles.btn} key={index + 1} onClick={() => handlePageChange(index + 1)} style={{ color: currentPage === index + 1 ? 'rgb(98, 155, 73)' : '#f3f3f3', backgroundColor: currentPage === index + 1 ? 'rgb(159, 192, 145)' : 'rgba(0, 0, 0, 0.1)' }}>
             {index + 1}
           </button>
         ))}
+        <button onClick={() => pageLast()}>&gt;&gt;</button>
       </div>
     </div>
   );
