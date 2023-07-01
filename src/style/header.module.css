@@ -12,6 +12,26 @@
   font-size: x-large;
 }
 
+.form-search {
+  position: relative;
+}
+
+.img-glass {
+  position: absolute;
+  left: 100px;
+}
+
+.inp-search {
+  position: absolute;
+  left: 100px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .nav ul {
   display: flex;
   justify-content: space-around;

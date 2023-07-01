@@ -2,7 +2,7 @@ import Footer from "components/Footer";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../style/home.module.css";
-import { useFetch } from "../custom/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
 const Home = () => {
   const { loading, responseData, errorMsg } = useFetch(
@@ -10,7 +10,7 @@ const Home = () => {
   );
 
   const navigate = useNavigate();
-
+  console.log(responseData);
   return (
     <section className={styles.section}>
       <div>
