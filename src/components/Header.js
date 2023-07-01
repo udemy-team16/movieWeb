@@ -13,9 +13,9 @@ const Header = () => {
     <header className={styles.header}>
       <h1 onClick={navigateToHome}>Movie App</h1>
       <nav className={styles.nav}>
-        <form action="" className="form-search">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="img-glass" />
-          <input type="search" className="inp-search" />
+        <form action="" className={styles.formSearch}>
+          <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.imgGlass} />
+          <input type="search" className={styles.inpSearch} placeholder="영화 제목을 입력하세요"/>
         </form>
         <ul>
           <li>Home</li>
