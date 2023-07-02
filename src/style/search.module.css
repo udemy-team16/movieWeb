@@ -1,0 +1,94 @@
+.section {
+  background-color: #171717;
+  color: #fff;
+  height: 100vh;
+}
+
+.section div {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.header {
+  font-size: large;
+  font-weight: 700;
+  padding: 2rem 0;
+}
+
+.ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.li {
+  position: relative;
+  width: 100%;
+}
+
+.imgContainer {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.img {
+  width: 100%;
+  border: 5px solid white;
+  border-radius: 5px;
+  display: block;
+}
+.imgContainer:hover img {
+  -webkit-filter: brightness(0.2);
+  filter: brightness(0.2);
+}
+
+.desc {
+  padding: 0 0.5rem;
+}
+
+.title {
+  font-size: 0.95em;
+  font-weight: 700;
+}
+
+.year {
+  font-size: 0.85em;
+  color: #919191;
+}
+
+.figcaption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+  width: 90%;
+  max-width: 300px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.star {
+  color: #6ac045;
+  margin-bottom: 10px;
+}
+
+.rating {
+  margin-bottom: 20px;
+}
+.genres {
+  margin-bottom: 10px;
+}
+
+.imgContainer:hover .figcaption {
+  opacity: 1;
+}
