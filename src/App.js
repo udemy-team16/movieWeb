@@ -7,6 +7,7 @@ import {
 } from "../node_modules/react-router-dom/dist/index";
 import MovieDetail from "./pages/MovieDetail";
 import "style/global.css";
+import Search from "pages/Search";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path="/movie/search/:movieName" element={<Search />} />
       </Routes>
     </Router>
   );
