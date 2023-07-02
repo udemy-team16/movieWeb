@@ -8,6 +8,7 @@ import {
 import MovieDetail from "./pages/MovieDetail";
 import "style/global.css";
 import Search from "pages/Search";
+import { Chat } from "components/Chat";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/movie/search/:movieName" element={<Search />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </Router>
   );

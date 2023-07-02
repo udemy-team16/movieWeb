@@ -1,0 +1,10 @@
+.section {
+  background-color: #171717;
+  color: #fff;
+  height: 100vh;
+}
+
+.section div {
+  margin: 0 auto;
+  max-width: 1000px;
+}
