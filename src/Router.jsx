@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nav from "./component/Nav";
 import Main from "./Main";
 import DetailMovie from "./Page/DetailMovie";
 
