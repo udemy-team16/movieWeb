@@ -1,16 +1,20 @@
 import useFetchMovies from 'hooks/useFetchMovies';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from 'styles/MovieDetail.module.css';
 import Loading from './Loading';
 
-const MovieDetail = ({ id }) => {
-  const { movie, loading, error } = useFetchMovies(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`);
+const MovieDetail = () => {
+  const { id } = useParams();
+  const { loading, error } = useFetchMovies('https://yts.mx/api/v2/list_movies.json?limit=50&minimum_rating=8.8&sort_by=year');
+  const { movies } = useSelector((state) => state.MovieStore);
+  
+  const movie = movies.filter((item) => item.id === Number(id))[0];
 
   if (error) {
     console.log(error);
   }
-
 
   return (
     <div>
