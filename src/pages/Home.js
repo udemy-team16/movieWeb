@@ -3,20 +3,30 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../style/home.module.css";
 import { useFetch } from "../hooks/useFetch";
+import { useDispatch, useSelector } from "react-redux";
+import { updateMoviestore } from "redux/MovieStore";
 
 const Home = () => {
   const { loading, responseData, errorMsg } = useFetch(
     "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
   );
+  const movies = useSelector((state) => state.movies) || [];
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (responseData?.data.movies) {
+      dispatch(updateMoviestore(responseData.data.movies));
+    }
+  }, [responseData, dispatch]);
+  console.log("movies", movies);
 
   const navigate = useNavigate();
-  console.log(responseData);
+
   return (
     <section className={styles.section}>
       <div>
         <h2 className={styles.header}>Latest YIFY Movies Torrents</h2>
         <ul className={styles.ul}>
-          {responseData?.data.movies.map((v, i) => {
+          {movies?.map((v, i) => {
             const navigateToDetail = () => {
               navigate(`/movie/${v.id}`);
             };
