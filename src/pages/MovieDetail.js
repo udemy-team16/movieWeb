@@ -1,22 +1,18 @@
-import { useFetch } from "hooks/useFetch";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styles from "../style/movieDetail.module.css";
 import useFavorite from "../hooks/useFavorite";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const { handleLike, like } = useFavorite(id);
-  const { loading, responseData, errorMsg } = useFetch(
-    "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
-  );
+  const movies = useSelector((state) => state.movies) || [];
   const [detailData, setDetailData] = useState();
 
   useEffect(() => {
-    setDetailData(
-      responseData?.data.movies.filter((data) => data.id === parseInt(id))[0]
-    );
-  }, [responseData?.data.movies, detailData, id]);
+    setDetailData(movies.find((data) => data.id === parseInt(id)));
+  }, [movies, id]);
 
   return (
     <section className={styles.section}>
