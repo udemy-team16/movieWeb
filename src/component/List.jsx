@@ -14,11 +14,13 @@ const List = () => {
       );
     }
 
+    console.log(item)
     return (
       <div className="list">
         <h2>최근 본 상품</h2>
         {item.map((item) => (
           <div className="listinfo" key={item.id} onClick={()=>navigate(`/detailMovie/${item.id}`)}>
+            <p>{item.id}</p>
             <img src={item.medium_cover_image} alt="이미지" />
           </div>
         ))}

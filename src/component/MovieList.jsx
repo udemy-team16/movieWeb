@@ -58,9 +58,15 @@ const MovieList = () => {
             className="imgs"
             onClick={() => {
               navigate(`/detailMovie/${list.id}`);
-              const storedList = JSON.parse(localStorage.getItem("list")) || []; // 이전에 저장된 배열 가져오기
-              storedList.unshift(list); // 새로운 객체를 배열에 추가
-              localStorage.setItem("list", JSON.stringify(storedList)); // 업데이트된 배열 저장
+              const storedList = JSON.parse(localStorage.getItem("list")) || [];
+            
+              // 이미 저장된 항목인지 확인하여 중복을 방지합니다.
+              const isDuplicate = storedList.some(item => item.id === list.id);
+            
+              if (!isDuplicate) {
+                storedList.unshift(list);
+                localStorage.setItem("list", JSON.stringify(storedList));
+              }
             }}
           >
             <img src={list.medium_cover_image} alt="" />

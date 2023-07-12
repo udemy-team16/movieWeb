@@ -6,7 +6,7 @@ import List from "./component/List";
 import DetailMovie from "./Page/DetailMovie";
 
 const Router = () => {
-
+  
   return (
     <BrowserRouter>
       <Nav />
