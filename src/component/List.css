@@ -1,0 +1,21 @@
+.list{
+    position: fixed;
+    top: 250px;
+    right: 5px;
+    width: 250px;
+    height: 600px;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 100;
+    overflow: auto;
+  }
+  .listinfo {
+    margin: 10px;
+    border: 1px solid black;
+    height: 150px;
+  }
+  .listinfo img {
+   
+    width: 100%;
+    height: 100%;
+  }
