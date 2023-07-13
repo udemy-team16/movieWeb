@@ -8,13 +8,10 @@ const List = () => {
 
     if (!item) {
       return (
-        <div className="list">
-          <h2>최근 본 상품이 없습니다.</h2>
-        </div>
+        <></>
       );
     }
 
-    console.log(item)
     return (
       <div className="list">
         <h2>최근 본 상품</h2>
